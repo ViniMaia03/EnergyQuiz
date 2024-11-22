@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1083412849211",
+    "project_id": "energyquiz-1714b",
+    "storage_bucket": "energyquiz-1714b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083412849211:android:4a6896ae396e9b0bff721e",
+        "android_client_info": {
+          "package_name": "com.example.energyquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfe2JRHThMXUVvD-volNBlEXdCcsE3SdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

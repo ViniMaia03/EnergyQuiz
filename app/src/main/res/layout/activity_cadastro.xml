@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Cadastro">
 
     <TextView
         android:layout_width="match_parent"
@@ -20,7 +20,16 @@
         android:textColor="@color/blue"/>
 
     <EditText
-        android:id="@+id/emailLogin"
+        android:id="@+id/nomeCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_marginBottom="30dp"
+        android:text="Digite seu nome" />
+
+    <EditText
+        android:id="@+id/emailCadastro"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:ems="10"
@@ -29,7 +38,7 @@
         android:text="Digite seu e-mail" />
 
     <EditText
-        android:id="@+id/senhaLogin"
+        android:id="@+id/senhaCadastro"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:ems="10"
@@ -38,34 +47,28 @@
         android:text="Digite sua senha" />
 
     <Button
-        android:id="@+id/botaoQuiz"
+        android:id="@+id/botaoCadastrado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/pink"
         android:orientation="vertical"
-        android:text="Logar" />
+        android:text="Cadastro" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textoCadastrado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:textColor="@color/blue"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Não possui conta ainda?"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:layout_marginTop="100dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/blue"/>
-
-        <Button
-            android:id="@+id/botaoCadastrar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cadastrar"
-            android:backgroundTint="@color/pink"/>
-    </LinearLayout>
+    <Button
+        android:id="@+id/botaoLogar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/pink"
+        android:orientation="vertical"
+        android:text="Cadastrado? Agora é só Logar" />
 
 </LinearLayout>
