@@ -1,6 +1,7 @@
 package com.example.energyquiz
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
@@ -9,16 +10,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.energyquiz.databinding.ActivityQuizBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Quiz : AppCompatActivity() {
 
-    private lateinit var binding: ActivityQuizBinding
+    private val binding by lazy {
+        ActivityQuizBinding.inflate(layoutInflater)
+    }
 
-    private val questoes = arrayOf("Questão A", "Questão B", "Questão C")
+    private val questoes = arrayOf("Quais dessas fontes de energia é renovável?",
+        "Por que as energias renováveis são importantes para o futuro do planeta?",
+        "Qual dessas características é verdadeira sobre a energia solar?")
 
-    private val opcoes = arrayOf(arrayOf("A", "B", "C"),
-        arrayOf("D", "E", "F"),
-        arrayOf("G", "H", "I"))
+    private val opcoes = arrayOf(arrayOf("Energia Solar", "Carvão", "Petróleo"),
+        arrayOf("Porque são mais baratas que todas as outras formas de energia.", "Porque ajudam a reduzir a poluição e o uso de recursos limitados.", "Porque podem ser usadas apenas em dias ensolarados."),
+        arrayOf("Ela depende do carvão para funcionar.", "Ela gera energia apenas quando há vento.", "É uma fonte que não emite poluentes ao ser utilizada."))
 
     private val respostas = arrayOf(0, 1, 2)
 
@@ -28,7 +35,6 @@ class Quiz : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -50,6 +56,10 @@ class Quiz : AppCompatActivity() {
 
         binding.restartBotao.setOnClickListener{
             restartQuiz()
+        }
+
+        binding.botaoAtualizacaoCadastro.setOnClickListener{
+            atualizarCadastroPagina()
         }
     }
 
@@ -96,7 +106,6 @@ class Quiz : AppCompatActivity() {
             respostaCorretaCor(opcaoSelecionadaIndex)
         } else {
             respostaErradoCor(opcaoSelecionadaIndex)
-            respostaCorretaCor(opcaoSelecionadaIndex)
         }
 
         if (currentQuestaoIndex < questoes.size - 1) {
@@ -112,5 +121,9 @@ class Quiz : AppCompatActivity() {
         placar = 0
         displayQuestao()
         binding.restartBotao.isEnabled = false
+    }
+
+    private fun atualizarCadastroPagina(){
+        startActivity(Intent(this, AtualizacaoCadastro::class.java))
     }
 }
